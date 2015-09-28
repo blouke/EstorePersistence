@@ -1,7 +1,10 @@
-package com.estore.domain;
+package com.estore.domain.order;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.estore.service.order.IOrder;
+
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -12,13 +15,16 @@ import java.util.List;
  */
 @Entity
 @Table(name="ORDERS")
-@NamedQuery(name="Order.findAll", query="SELECT o FROM Order o")
-public class Order implements Serializable {
+@NamedQueries({
+		@NamedQuery(name="Order.findAllOrders", query="SELECT o FROM Order o"),
+		@NamedQuery(name="Order.findById", query="SELECT o FROM Order o WHERE o.id = :id")
+})
+public class Order implements Serializable, IOrder {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 
 	private double amount;
 
@@ -40,11 +46,11 @@ public class Order implements Serializable {
 	public Order() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

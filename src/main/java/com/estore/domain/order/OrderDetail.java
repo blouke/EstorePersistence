@@ -1,4 +1,4 @@
-package com.estore.domain;
+package com.estore.domain.order;
 
 import java.io.Serializable;
 import javax.persistence.*;

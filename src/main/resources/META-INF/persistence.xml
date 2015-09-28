@@ -3,9 +3,9 @@
 	<persistence-unit name="Estore" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>com.estore.domain.Product</class>
-		<class>com.estore.domain.Order</class>
-		<class>com.estore.domain.OrderDetail</class>
-		<class>com.estore.domain.OrderDetailPK</class>
+		<class>com.estore.domain.order.Order</class>
+		<class>com.estore.domain.order.OrderDetail</class>
+		<class>com.estore.domain.order.OrderDetailPK</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/estore"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
