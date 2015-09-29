@@ -3,6 +3,8 @@ package com.estore.domain.order;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.estore.domain.product.Product;
+
 
 /**
  * The persistent class for the ORDER_DETAIL database table.
@@ -14,8 +16,9 @@ import javax.persistence.*;
 public class OrderDetail implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private OrderDetailPK id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
 
 	private int quantity;
 
@@ -23,14 +26,18 @@ public class OrderDetail implements Serializable {
 	@ManyToOne
 	private Order order;
 
+	//bi-directional many-to-one association to Product
+	@ManyToOne
+	private Product product;
+
 	public OrderDetail() {
 	}
 
-	public OrderDetailPK getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(OrderDetailPK id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -48,6 +55,14 @@ public class OrderDetail implements Serializable {
 
 	public void setOrder(Order order) {
 		this.order = order;
+	}
+
+	public Product getProduct() {
+		return this.product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 }

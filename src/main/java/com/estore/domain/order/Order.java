@@ -16,15 +16,15 @@ import java.util.List;
 @Entity
 @Table(name="ORDERS")
 @NamedQueries({
-		@NamedQuery(name="Order.findAllOrders", query="SELECT o FROM Order o"),
-		@NamedQuery(name="Order.findById", query="SELECT o FROM Order o WHERE o.id = :id")
+	@NamedQuery(name="Order.findAllOrders", query="SELECT o FROM Order o"),
+	@NamedQuery(name="Order.findById", query="SELECT o FROM Order o WHERE o.id = :id")
 })
 public class Order implements Serializable, IOrder {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 
 	private double amount;
 
@@ -46,11 +46,11 @@ public class Order implements Serializable, IOrder {
 	public Order() {
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

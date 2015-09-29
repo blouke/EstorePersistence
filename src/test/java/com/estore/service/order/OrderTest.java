@@ -18,7 +18,7 @@ import org.junit.Test;
 
 import com.estore.domain.order.Order;
 import com.estore.domain.order.OrderDetail;
-import com.estore.domain.order.OrderDetailPK;
+import com.estore.domain.product.Product;
 
 public class OrderTest {
 	
@@ -31,16 +31,15 @@ public class OrderTest {
 		emf = Persistence.createEntityManagerFactory("Estore");
 	}
 
-//	@Before
-//    public void beforeEachTest() {
-//        em = emf.createEntityManager();
-//    }
-//
-//	@After
-//    public void afterEachTest() {
-//        em.close();
-//    }
-	
+	@Before
+    public void beforeEachTest() {
+        em = emf.createEntityManager();
+    }
+
+	@After
+    public void afterEachTest() {
+        em.close();
+    }
 	
 		
 //	@Test
@@ -55,14 +54,12 @@ public class OrderTest {
 //		order.setStatus("pending");
 //		
 //		List<OrderDetail> orderDetailsList = new ArrayList<OrderDetail>();
-//		OrderDetail orderDetail = new OrderDetail();
-//		
-//		OrderDetailPK orderDetailPK = new OrderDetailPK();
-//		orderDetailPK.setOrderId(1);
-//		orderDetailPK.setProductId(1);
-//		
+//		OrderDetail orderDetail = new OrderDetail();				
 //		orderDetail.setQuantity(4);
-//		orderDetail.setId(orderDetailPK);
+//		orderDetail.setOrder((Order) order);
+//		Product product = em.find(Product.class, 1);
+//		orderDetail.setProduct(product);
+//		
 //		orderDetailsList.add(orderDetail);
 //		order.setOrderDetails(orderDetailsList);
 //		
@@ -73,9 +70,9 @@ public class OrderTest {
 //		IOrder verification = findOrder(1);
 //		assertEquals("Order Amount:", verification.getAmount(), order.getAmount(),0.0f);
 //	}
-//	
-//	private IOrder findOrder(Integer orderId){
-//		return em.find(Order.class, orderId);
-//	}
+	
+	private IOrder findOrder(Integer orderId){
+		return em.find(Order.class, orderId);
+	}
 
 }

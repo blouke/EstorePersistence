@@ -2,7 +2,7 @@ package com.estore.jpa;
 import java.util.List;
 
 import javax.persistence.*;
-import com.estore.domain.Product;
+import com.estore.domain.product.Product;
 
 public class JpaTest {
 	private EntityManager manager;
@@ -27,7 +27,7 @@ public class JpaTest {
 		List<Product> resultList = manager.createQuery("Select a From Product a", Product.class).getResultList();
 		System.out.println("num of products:" + resultList.size());
 		for (Product next : resultList) {
-		    System.out.println("next product: " + next);
+		    System.out.println("next product: " + next.getName());
 		}
         
     }

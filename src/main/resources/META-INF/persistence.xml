@@ -2,10 +2,10 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="Estore" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<class>com.estore.domain.Product</class>
+		<class>com.estore.domain.order.OrderDetailPK</class>
 		<class>com.estore.domain.order.Order</class>
 		<class>com.estore.domain.order.OrderDetail</class>
-		<class>com.estore.domain.order.OrderDetailPK</class>
+		<class>com.estore.domain.product.Product</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/estore"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>

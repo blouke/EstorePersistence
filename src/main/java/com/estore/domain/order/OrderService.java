@@ -24,7 +24,7 @@ public class OrderService implements IOrderService {
 		
 		tx.begin();
 		IOrder orderToUpdate;
-		if ((order.getId() != null) && (order.getId()>0)){
+		if (order.getId()>0){
 			orderToUpdate = em.find(Order.class, order.getId());
 			orderToUpdate.setAmount(order.getAmount());
 			orderToUpdate.setCustomerId(order.getCustomerId());

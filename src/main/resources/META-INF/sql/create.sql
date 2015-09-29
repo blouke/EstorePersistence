@@ -84,10 +84,11 @@ CREATE TABLE IF NOT EXISTS `estore`.`PRODUCT` (
 -- Table `estore`.`ORDER_DETAIL`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `estore`.`ORDER_DETAIL` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `order_id` INT NOT NULL COMMENT '',
   `product_id` INT NOT NULL COMMENT '',
   `quantity` INT NOT NULL COMMENT '',
-  PRIMARY KEY (`order_id`, `product_id`)  COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '',
   INDEX `ORDER_PRODUCT_ID_INDEX` (`product_id` ASC)  COMMENT '',
   CONSTRAINT `fk_orderdetail_product`
     FOREIGN KEY (`product_id`)

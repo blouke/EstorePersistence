@@ -6,8 +6,8 @@ import java.util.List;
 import com.estore.domain.order.OrderDetail;
 
 public interface IOrder {
-	public Integer getId();
-	public void setId(Integer id);
+	public int getId();
+	public void setId(int id);
 	public void setAmount(double amount);
 	public void setCustomerId(int customerId);
 	public void setOrderDate(Timestamp orderDate);
