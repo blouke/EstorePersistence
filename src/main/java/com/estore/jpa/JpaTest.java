@@ -48,5 +48,4 @@ public class JpaTest {
     	product.setImage("/images/1.jpg");
     	productService.saveProduct(product);
     }
- 
-i}
+ }
