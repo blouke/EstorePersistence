@@ -1,28 +1,34 @@
 package com.estore.domain.delivery;
 
+import java.util.Date;
+
 public interface IDelivery {
 	
 	Long getId();
 	
-	String getName();
+	Long getOrderId();
 	
-	Double getPrice();
+	Date getScheduledDate();
 	
-	String getDescription();
+	Date getActualDate();
 	
-	Long getCategoryId();
+	Long getAddressId();
 	
-	String getImage();
+	Double cost();
 	
-	void setName(String name);
+	Integer status();
 	
-	void setPrice(Double price);
+	String getTrackingUrl();
 	
-	void setDescription(String description);
+	void setScheduledDate(Date date);
 	
-	void setCategoryId(Long id);
+	void setActualDate(Date date);
 	
-	void setImage(String image);
+	void setCost(Double cost);
+	
+	void setStatus(Integer status);
+	
+	void setTrackingUrl(String url);
 	
 	String toString();
 }
