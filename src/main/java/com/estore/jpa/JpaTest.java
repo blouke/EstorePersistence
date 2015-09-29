@@ -1,35 +1,49 @@
 package com.estore.jpa;
 import java.util.List;
 
-import javax.persistence.*;
-import com.estore.domain.Product;
+import com.estore.domain.product.IProduct;
+import com.estore.domain.product.IProductService;
+import com.estore.domain.product.ProductService;
 
-public class JpaTest {
-	private EntityManager manager;
-	 
-    public JpaTest(EntityManager manager) {
-        this.manager = manager;
+public class JpaTest { 
+	private IProductService productService;
+	
+    public JpaTest() {
+    	productService = new ProductService();
     }
-    /**
-     * @param args
-     */
+ 
     public static void main(String[] args) {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Estore");
-        EntityManager manager = factory.createEntityManager();
-        JpaTest test = new JpaTest(manager);
- 
+        JpaTest test = new JpaTest();
+        System.out.println("GET ALL PRODUCTS");
         test.listProducts();
- 
+        System.out.println("GET PRODUCTS BY CATEGORY");
+        test.getProductForCategory();
+        test.updateProduct(1L);
         System.out.println(".. done");
     }
     
     private void listProducts() {	
-		List<Product> resultList = manager.createQuery("Select a From Product a", Product.class).getResultList();
-		System.out.println("num of products:" + resultList.size());
-		for (Product next : resultList) {
-		    System.out.println("next product: " + next);
-		}
-        
+    	List<IProduct> resultList = productService.getAllProducts();
+    	System.out.println("num of products:" + resultList.size());
+    	
+    	for(IProduct next :resultList) {
+    		System.out.println(next);
+    	}     
+    }
+    
+    private void getProductForCategory() {
+    	List<IProduct> resultList = productService.getProductsByCategory(1L);
+    	System.out.println("num of products:" + resultList.size());
+    	
+    	for(IProduct next :resultList) {
+    		System.out.println(next);
+    	}   
+    }
+    
+    private void updateProduct(Long id) {
+    	IProduct product = productService.getProductById(id);
+    	product.setImage("/images/1.jpg");
+    	productService.saveProduct(product);
     }
  
 }
