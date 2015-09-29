@@ -1,9 +1,11 @@
 package com.estore.jpa;
 import java.util.List;
 
+
 import com.estore.domain.product.IProduct;
 import com.estore.domain.product.IProductService;
 import com.estore.domain.product.ProductService;
+
 
 public class JpaTest { 
 	private IProductService productService;
@@ -23,6 +25,7 @@ public class JpaTest {
     }
     
     private void listProducts() {	
+
     	List<IProduct> resultList = productService.getAllProducts();
     	System.out.println("num of products:" + resultList.size());
     	
@@ -45,5 +48,4 @@ public class JpaTest {
     	product.setImage("/images/1.jpg");
     	productService.saveProduct(product);
     }
- 
-}
+ }
