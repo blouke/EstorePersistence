@@ -47,6 +47,7 @@ public class DeliveryService implements IDeliveryService{
 			deliveryToUpdate = delivery;
 		}
 		em.persist(deliveryToUpdate);
+		
 		tx.commit();		
 	}
 	
@@ -81,23 +82,3 @@ public class DeliveryService implements IDeliveryService{
 	}
 
 }
-
-
-
-
-
-	/*	
-
-	@Override
-	public List<IOrder> getAllOrders() {
-		return em.createNamedQuery("findAllOrders").getResultList();
-	}
-
-	@Override
-	public IOrder findById(int orderId) {
-//		return em.createNamedQuery("Order.findById", Order.class).
-//				setParameter("id", orderId).getSingleResult();
-		return em.find(Order.class, orderId);
-	}*/
-
-	
