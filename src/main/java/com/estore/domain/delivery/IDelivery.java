@@ -4,31 +4,20 @@ import java.util.Date;
 
 public interface IDelivery {
 	
-	Long getId();
-	
-	Long getOrderId();
-	
+	int getId();
+	int getOrderId();
 	Date getScheduledDate();
-	
 	Date getActualDate();
-	
-	Long getAddressId();
-	
-	Double cost();
-	
-	Integer status();
-	
+	int getAddressId();
+	double getCost();
+	int getStatus();
 	String getTrackingUrl();
-	
+	void setOrderId(int id);
 	void setScheduledDate(Date date);
-	
 	void setActualDate(Date date);
-	
-	void setCost(Double cost);
-	
-	void setStatus(Integer status);
-	
+	void setAddressId(int id);
+	void setCost(double cost);
+	void setStatus(int status);
 	void setTrackingUrl(String url);
-	
 	String toString();
 }
