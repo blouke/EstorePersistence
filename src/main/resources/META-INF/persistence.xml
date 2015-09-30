@@ -9,6 +9,7 @@
 		<class>com.estore.domain.delivery.Delivery</class>
 		<class>com.estore.domain.user.User</class>
 		<class>com.estore.domain.user.UserGroup</class>
+		<class>com.estore.domain.payment.Payment</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/estore"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
