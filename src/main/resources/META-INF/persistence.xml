@@ -7,14 +7,15 @@
 		<class>com.estore.domain.order.Order</class>
 		<class>com.estore.domain.order.OrderDetail</class>
 		<class>com.estore.domain.delivery.Delivery</class>
-    	<class>com.estore.domain.delivery.Delivery</class>
-    	<class>com.estore.domain.user.UserService</class>
 		<class>com.estore.domain.user.User</class>
+		<class>com.estore.domain.user.UserGroup</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/estore"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="eclipselink.ddl-generation" value="create-tables"/>
+    <!-- or just value="create-tables" drop-and-create-tables-->
 			
 			<!--  
 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
