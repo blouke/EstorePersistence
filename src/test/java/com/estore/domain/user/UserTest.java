@@ -42,7 +42,7 @@ public class UserTest
     {
     	User user = findUser(1);
     	String fname = user.getFirstName();
-    	System.out.println(fname);
+    	//System.out.println(fname);
     	
     	User newUser = findUserName(fname);
     	assertEquals(fname, newUser.getFirstName());
@@ -60,7 +60,7 @@ public class UserTest
    {
 	   User user = findUser(1);
 	   UserGroup usergrp = findUserGroup(1);
-	   System.out.println(usergrp.getGroupId());
+	  // System.out.println(usergrp.getGroupId());
 	   
    }
    
