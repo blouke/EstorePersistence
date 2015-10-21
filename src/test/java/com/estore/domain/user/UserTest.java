@@ -37,7 +37,7 @@ public class UserTest
         tx.begin();
     }
         
-    @Test
+    /*@Test
     public void testUser()
     {
     	User user = findUser(1);
@@ -62,7 +62,7 @@ public class UserTest
 	   UserGroup usergrp = findUserGroup(1);
 	   System.out.println(usergrp.getGroupId());
 	   
-   }
+   }*/
    
    @After
    public void afterEachTest() {
