@@ -2,26 +2,30 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="Estore" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<non-jta-data-source>java:comp/env/EstoreDS</non-jta-data-source>
+		
 		<class>com.estore.domain.product.Product</class>
 		<class>com.estore.domain.product.ProductCategory</class>
 		<class>com.estore.domain.order.Order</class>
 		<class>com.estore.domain.order.OrderDetail</class>
 		<class>com.estore.domain.delivery.Delivery</class>
+		<class>com.estore.domain.user.User</class>
+		<class>com.estore.domain.user.UserGroup</class>
+		<class>com.estore.domain.payment.Payment</class>
+		
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/estore"/>
+			<property name="javax.persistence.nonJtaDataSource" value="java:comp/env/EstoreDS"/>
+			<!-- <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/estore"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-			
-			<!--  
+			  
 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 	    	<property name="javax.persistence.schema-generation.create-source" value="script"/>
     		<property name="javax.persistence.schema-generation.create-script-source" value="META-INF/sql/create.sql"/>
       		<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/data.sql"/>
       		<property name="javax.persistence.schema-generation.drop-source" value="script"/>
         	<property name="javax.persistence.schema-generation.drop-script-source" value="META-INF/sql/drop.sql"/>
-      		-->
       		
-      		<!-- 
       		<property name="eclipselink.logging.level" value="FINEST"/>
       		-->
       		

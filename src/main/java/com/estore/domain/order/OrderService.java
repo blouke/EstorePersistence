@@ -1,5 +1,6 @@
 package com.estore.domain.order;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -50,8 +51,20 @@ public class OrderService implements IOrderService {
 	}
 
 	@Override
-	public List<IOrder> getAllOrders() {
-		return em.createNamedQuery("findAllOrders").getResultList();
+	public List<OrderTO> getAllOrders() {
+		List<OrderTO> orderTOList = new ArrayList<OrderTO>();
+		List<IOrder> ordersList = em.createNamedQuery("Order.findAllOrders").getResultList();
+		OrderTO orderTO = new OrderTO();
+		
+		for (IOrder order: ordersList){
+			orderTO.orderId = order.getId();
+			orderTO.orderTotal = order.getAmount();
+			orderTO.paymentId = order.getPaymentId();
+			orderTO.orderStatus = order.getStatus();
+			orderTO.orderDate = order.getOrderDate().toString();
+			orderTOList.add(orderTO);
+		}
+		return orderTOList;
 	}
 
 	@Override

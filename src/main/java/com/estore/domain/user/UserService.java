@@ -2,6 +2,7 @@ package com.estore.domain.user;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NonUniqueResultException;
