@@ -9,9 +9,9 @@ public interface IUserService
 
     List<IUser> getAllUsers();
     
-    List<IUser>getUsersByFirstName(String FirstName);
+    List<IUser>getUsersByEmail(String Email);
     
-    List<IUser>getUsersByLastName(String LastName);
+    List<IUser>getUsersByPassword(String Password);
     
     List<IUser>getUsersByGroup(Long groupId);
     
