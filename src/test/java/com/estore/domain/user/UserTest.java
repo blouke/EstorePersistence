@@ -37,15 +37,15 @@ public class UserTest
         tx.begin();
     }
         
-    /*@Test
+/*    @Test
     public void testUser()
     {
     	User user = findUser(1);
-    	String fname = user.getFirstName();
+    	String fname = user.getEmail();
     	System.out.println(fname);
     	
-    	User newUser = findUserName(fname);
-    	assertEquals(fname, newUser.getFirstName());
+    	User newUser = findUserEmail(fname);
+    	assertEquals(fname, newUser.getEmail());
     	
     }
    @Test
@@ -55,7 +55,7 @@ public class UserTest
         assertEquals(3, q.getResultList().size());
     }
    
-   @Test
+  @Test
    public void testUserGroup()
    {
 	   User user = findUser(1);
@@ -69,7 +69,7 @@ public class UserTest
        entityManager.close();
    }
    
-   
+  /* 
     private User findUser(long userId) {
         Query q = entityManager.createQuery("select c from User c where c.id = :id");
         q.setParameter("id", userId);
@@ -82,9 +82,9 @@ public class UserTest
         return (UserGroup) q.getSingleResult();
     }
     
-    private User findUserName(String fname) {
-        Query q = entityManager.createQuery("select c from User c where c.first_name = :fname");
-        q.setParameter("fname", fname);
+    private User findUserEmail(String email) {
+        Query q = entityManager.createQuery("select c from User c where c.email = :email");
+        q.setParameter("email", email);
         return (User) q.getSingleResult();
-    }
+    }*/
 }
