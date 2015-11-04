@@ -36,18 +36,6 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public List<IUser> getUsersByFirstName(String FirstName) {
-		List<IUser> userFirstList = em.createQuery("Select a From User a Where a.first_name=:firstname", IUser.class).setParameter("firstname", FirstName).getResultList();
-		return userFirstList;
-	}
-
-	@Override
-	public List<IUser> getUsersByLastName(String LastName) {
-		List<IUser> userLastList = em.createQuery("Select a From User a Where a.last_name=:lastname", IUser.class).setParameter("lastname", LastName).getResultList();
-		return userLastList;
-	}
-	
-	@Override
 	public List<IUser> getUsersByGroup(Long groupId) {
 		List<IUser> userGroupList = em.createQuery("Select a From User a Where a.groupID=:groupId", IUser.class).setParameter("groupId", groupId).getResultList();
 		//List<IUser> userGroupList = null;
@@ -84,6 +72,20 @@ public class UserService implements IUserService {
         if (userByIdList.isEmpty()) return null;
         else if (userByIdList.size() == 1) return userByIdList.get(0);
         throw new NonUniqueResultException();
+	}
+
+
+	@Override
+	public List<IUser> getUsersByEmail(String Email) {
+		List<IUser> userEmailList = em.createQuery("Select a From User a Where a.email=:email", IUser.class).setParameter("email", Email).getResultList();
+		return userEmailList;
+	}
+
+
+	@Override
+	public List<IUser> getUsersByPassword(String Password) {
+		List<IUser> userPasswordList = em.createQuery("Select a From User a Where a.password_hash=:password", IUser.class).setParameter("password", Password).getResultList();
+		return userPasswordList;
 	}
 
 }

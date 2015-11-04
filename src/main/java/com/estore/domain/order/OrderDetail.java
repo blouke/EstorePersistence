@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.estore.domain.product.Product;
+import com.estore.service.order.IOrderDetail;
 
 
 /**
@@ -13,14 +14,14 @@ import com.estore.domain.product.Product;
 @Entity
 @Table(name="ORDER_DETAIL")
 @NamedQuery(name="OrderDetail.findAll", query="SELECT o FROM OrderDetail o")
-public class OrderDetail implements Serializable {
+public class OrderDetail implements IOrderDetail, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
-	private int quantity;
+	private int quantity=1;
 
 	//bi-directional many-to-one association to Order
 	@ManyToOne
