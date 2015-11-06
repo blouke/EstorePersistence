@@ -8,7 +8,9 @@ public interface ICart {
 	public void setItems(List<OrderDetail> lineItems);
 	public List<OrderDetail> getItems();
 	public int getCount();
+	public void updateItemQty(IOrderDetail item, int quantity);
 	public void addItem(IOrderDetail item);
 	public void removeItem(Long lineItemId);
-	public float getTotal();
+	public double getTotal();
+	public IOrderDetail findItem(Long prodId);
 }

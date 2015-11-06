@@ -10,7 +10,7 @@ import com.estore.service.order.IOrderDetail;
 public class Cart implements Serializable, ICart {
 
 	private List<OrderDetail> items;
-	private float total=0;
+	private double total=0;
 	
 	public Cart(){
 		items = new ArrayList<OrderDetail>();
@@ -32,10 +32,34 @@ public class Cart implements Serializable, ICart {
 	}
 	
 	@Override
-	public float getTotal(){
+	public double getTotal(){
 		return total;
 	}
 
+	@Override
+	public IOrderDetail findItem(Long productId){
+		for (OrderDetail lineItem: items){
+			if (lineItem.getProduct().getId().equals(productId)){
+				return lineItem;
+			}
+		}
+		return null;
+	}
+	
+	@Override
+	public void updateItemQty(IOrderDetail item, int quantity) {
+		Long productId = item.getProduct().getId();
+		for (OrderDetail lineItem: items){
+			if (lineItem.getProduct().getId().equals(productId)){
+				Double price = lineItem.getProduct().getPrice();
+				total -= price * lineItem.getQuantity();
+				lineItem.setQuantity(quantity);
+				total += (price * quantity);
+				return;
+			}
+		}
+	}
+	
 	@Override
 	public void addItem(IOrderDetail item) {
 		Long productId = item.getProduct().getId();
