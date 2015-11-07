@@ -61,5 +61,15 @@ public class PaymentService implements IPaymentService {
         else if (resultList.size() == 1) return resultList.get(0);
         throw new NonUniqueResultException();
 	}
+	
+	
+	@Override
+	public void saveAddress(IAddress address){
+		EntityTransaction tx = em.getTransaction();
+
+        tx.begin();
+        em.persist(address);
+        tx.commit();
+	}
 
 }

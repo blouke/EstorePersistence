@@ -10,4 +10,6 @@ public interface IPaymentService {
 	void savePayment(IPayment payment);
     
 	IPayment getPaymentById(Long id);
+	
+	public void saveAddress(IAddress address);
 }
