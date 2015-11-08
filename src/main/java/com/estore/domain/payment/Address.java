@@ -1,7 +1,9 @@
 package com.estore.domain.payment;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.sql.Timestamp;
 
 
@@ -10,7 +12,12 @@ import java.sql.Timestamp;
  * 
  */
 @Entity
-@NamedQuery(name="Address.findAll", query="SELECT a FROM Address a")
+@NamedQueries({
+	@NamedQuery(name="Address.findAll", query="SELECT a FROM Address a"),
+	@NamedQuery(name="findAddressById", query="SELECT a FROM Address a WHERE a.id = :id"),
+	@NamedQuery(name="findAddressesByUserId", query="SELECT a FROM Address a WHERE a.userId = :id"),
+})
+
 public class Address implements Serializable, IAddress {
 	private static final long serialVersionUID = 1L;
 
