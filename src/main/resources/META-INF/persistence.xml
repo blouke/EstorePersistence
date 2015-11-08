@@ -12,6 +12,7 @@
 		<class>com.estore.domain.user.User</class>
 		<class>com.estore.domain.user.UserGroup</class>
 		<class>com.estore.domain.payment.Payment</class>
+		<class>com.estore.domain.payment.Address</class>
 		
 		<properties>
 			<property name="javax.persistence.nonJtaDataSource" value="java:comp/env/EstoreDS"/>

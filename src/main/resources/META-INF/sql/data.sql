@@ -7,13 +7,13 @@ INSERT INTO CATEGORY (NAME,TAGS) VALUES
 	('Coffee','Medium roast, Dark roast');
 
 -- TABLE PRODUCT
-INSERT INTO PRODUCT (NAME,PRICE,DESCRIPTION,CATEGORY_ID) VALUES 
-	('Book',40.00,'Introduction to Java EE 7',1),
-	('Bag',10.00,'Super large bag',1),
-	('Bottle',5.00,'Large water bottle',1),
-	('Venti Coffee',5.00,'Medium roast veti coffee',2),
-	('Grande Coffee',4.00,'Medium roast grande coffee',2),
-	('Tall Coffee',3.00,'Medium roast tall coffee',2);
+INSERT INTO PRODUCT (NAME,PRICE,DESCRIPTION,CATEGORY_ID,IMAGE) VALUES 
+	('Book',40.00,'Introduction to Java EE 7',1,'detailsquare.jpg'),
+	('Bag',10.00,'Super large bag',1,'detailsquare2.jpg'),
+	('Bottle',5.00,'Large water bottle',1,'detailsquare3.jpg'),
+	('Venti Coffee',5.00,'Medium roast veti coffee',2,'detailsquare.jpg'),
+	('Grande Coffee',4.00,'Medium roast grande coffee',2,'detailsquare2.jpg'),
+	('Tall Coffee',3.00,'Medium roast tall coffee',2,'detailsquare3.jpg');
 
 -- TABLE USER_GROUPS
 INSERT INTO USER_GROUPS (NAME,DESCRIPTION) VALUES 
@@ -38,7 +38,7 @@ INSERT INTO ORDERS (AMOUNT,ORDER_DATE,CUSTOMER_ID,STATUS,PAYMENT_ID) VALUES
 	(100.0,'2014-01-05',1,'Processing',2),
 	(25.0,'2015-04-06',1,'Processing',3),
 	(40.0,'2015-06-08',2,'Processing',4),
-	(80.0,'2015-08-02',2,'Processing',5),;
+	(80.0,'2015-08-02',2,'Processing',5);
 
 -- TABLE ORDER_DETAIL
 INSERT INTO ORDER_DETAIL (ORDER_ID,PRODUCT_ID,QUANTITY) VALUES (1,1,1);

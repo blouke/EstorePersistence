@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `estore`.`PRODUCT` (
   `price` DECIMAL(5,2) NOT NULL COMMENT '',
   `description` VARCHAR(100) NOT NULL COMMENT '',
   `category_id` INT NOT NULL COMMENT '',
-  `image` BLOB NULL COMMENT '',
+  `image` VARCHAR(100) NOT NULL COMMENT '',
   PRIMARY KEY (`id`)  COMMENT '',
   INDEX `FK_PRODUCT_CATEGORY_INDEX` (`category_id` ASC)  COMMENT '',
   CONSTRAINT `fk_product_category`

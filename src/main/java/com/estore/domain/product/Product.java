@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table (name = "PRODUCT")
+@Cacheable(false)
 public class Product implements Serializable, IProduct{
 	private static final long serialVersionUID = 1L;
 	
