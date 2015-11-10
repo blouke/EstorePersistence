@@ -9,10 +9,10 @@
 		<class>com.estore.domain.order.Order</class>
 		<class>com.estore.domain.order.OrderDetail</class>
 		<class>com.estore.domain.delivery.Delivery</class>
-		<class>com.estore.domain.user.User</class>
-		<class>com.estore.domain.user.UserGroup</class>
 		<class>com.estore.domain.payment.Payment</class>
 		<class>com.estore.domain.payment.Address</class>
+		<class>com.estore.domain.user.User</class>
+		<class>com.estore.domain.user.UserGroup</class>
 		
 		<properties>
 			<property name="javax.persistence.nonJtaDataSource" value="java:comp/env/EstoreDS"/>

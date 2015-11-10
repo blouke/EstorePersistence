@@ -5,7 +5,7 @@ import java.util.List;
 import com.estore.domain.order.OrderTO;
 
 public interface IOrderService {
-	void saveOrder(IOrder order);
+	int saveOrder(IOrder order);
 	void deleteOrder(int orderId);
 	List<OrderTO> getAllOrders();
 	IOrder findById(int orderId);

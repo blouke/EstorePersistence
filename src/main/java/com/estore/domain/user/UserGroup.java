@@ -1,104 +1,79 @@
 package com.estore.domain.user;
 
+import java.io.Serializable;
+import javax.persistence.*;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 
-
+/**
+ * The persistent class for the USER_GROUPS database table.
+ * 
+ */
 @Entity
 @Table(name="USER_GROUPS")
-public class UserGroup 
-{
+@NamedQuery(name="UserGroup.findAll", query="SELECT u FROM UserGroup u")
+public class UserGroup implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	//@Basic(optional = false)
-	@NotNull
-	@Column(name = "ID")
-	private Long groupId;
-	
-	@Column(name="NAME")
-	private String groupName;
-	
-	@Column(name="DESCRIPTION")
-	private String desc;
-	
-	UserGroup()
-	{
-		
-	}
-	/*//@JoinColumn(name = "ID", referencedColumnName = "GROUP_ID")
-	@OneToMany(cascade = CascadeType.ALL, mappedBy="group")
-	private List<User> users;*/
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 
-	public Long getGroupId() {
-		return groupId;
-	}
-	public void setGroupId(Long id) {
-		this.groupId = id;
-	}
-	public String getGroupName() {
-		return groupName;
-	}
-	public void setGroupName(String groupName) {
-		this.groupName = groupName;
-	}
-	public String getDesc() {
-		return desc;
-	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((desc == null) ? 0 : desc.hashCode());
-		result = prime * result + ((groupId == null) ? 0 : groupId.hashCode());
-		result = prime * result
-				+ ((groupName == null) ? 0 : groupName.hashCode());
-		return result;
+	private String description;
+
+	private String name;
+
+	//bi-directional many-to-one association to User
+	@OneToMany(mappedBy="userGroup")
+	private List<User> users;
+
+	public UserGroup() {
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UserGroup other = (UserGroup) obj;
-		if (desc == null) {
-			if (other.desc != null)
-				return false;
-		} else if (!desc.equals(other.desc))
-			return false;
-		if (groupId == null) {
-			if (other.groupId != null)
-				return false;
-		} else if (!groupId.equals(other.groupId))
-			return false;
-		if (groupName == null) {
-			if (other.groupName != null)
-				return false;
-		} else if (!groupName.equals(other.groupName))
-			return false;
-		return true;
+	public int getId() {
+		return this.id;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setId(int id) {
+		this.id = id;
 	}
-	/*public List<User> getUsers() {
-		return users;
+
+	public String getDescription() {
+		return this.description;
 	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<User> getUsers() {
+		return this.users;
+	}
+
 	public void setUsers(List<User> users) {
 		this.users = users;
-	}*/
-	
-	
+	}
+
+	public User addUser(User user) {
+		getUsers().add(user);
+		user.setUserGroup(this);
+
+		return user;
+	}
+
+	public User removeUser(User user) {
+		getUsers().remove(user);
+		user.setUserGroup(null);
+
+		return user;
+	}
+
 }

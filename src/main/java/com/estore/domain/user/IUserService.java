@@ -11,11 +11,15 @@ public interface IUserService
     
     List<IUser>getUsersByEmail(String Email);
     
+    IUser getUserByEmail(String Email);
+    
     List<IUser>getUsersByPassword(String Password);
     
     List<IUser>getUsersByGroup(Long groupId);
     
-    void saveUser(IUser user);
+    int saveUser(IUser user);
     
-    IUser getUserById(Long id);
+    IUser getUserById(int id);
+    
+    public UserGroup getUserGroupById(int id);
 }

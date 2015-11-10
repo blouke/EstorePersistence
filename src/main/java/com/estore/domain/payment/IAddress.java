@@ -1,5 +1,7 @@
 package com.estore.domain.payment;
 
+import com.estore.domain.user.User;
+
 public interface IAddress {
 	public int getId();
 	public String getCity();
@@ -10,8 +12,8 @@ public interface IAddress {
 	public void setState(String state);
 	public String getStreetAddress();
 	public void setStreetAddress(String streetAddress);
-	public int getUserId();
-	public void setUserId(int userId);
 	public String getZipCode();
 	public void setZipCode(String zipCode);
+	public User getUser();
+	public void setUser(User user);
 }

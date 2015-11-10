@@ -13,4 +13,5 @@ public interface ICart {
 	public void removeItem(Long lineItemId);
 	public double getTotal();
 	public IOrderDetail findItem(Long prodId);
+	public IOrder createOrder(int userId);
 }

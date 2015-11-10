@@ -1,10 +1,14 @@
 package com.estore.domain.order;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import com.estore.service.order.ICart;
+import com.estore.service.order.IOrder;
 import com.estore.service.order.IOrderDetail;
 
 public class Cart implements Serializable, ICart {
@@ -82,6 +86,23 @@ public class Cart implements Serializable, ICart {
 				return;
 			}
 		}
+	}
+	
+	
+	public IOrder createOrder(int userId){
+		IOrder order = new Order();
+		order.setAmount(total);
+		order.setCustomerId(userId);
+		order.setOrderDate(new Timestamp(Calendar.getInstance().getTime().getTime()));
+		order.setPaymentId(1);
+		order.setStatus("processing");
+		
+		for (OrderDetail item: items){
+			item.setOrder((Order) order);
+		}
+		
+		order.setOrderDetails(items);
+		return order;
 	}
 
 }
