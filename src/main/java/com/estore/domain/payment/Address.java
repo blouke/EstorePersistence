@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import com.estore.domain.user.User;
+
 import java.sql.Timestamp;
 
 
@@ -15,14 +17,14 @@ import java.sql.Timestamp;
 @NamedQueries({
 	@NamedQuery(name="Address.findAll", query="SELECT a FROM Address a"),
 	@NamedQuery(name="findAddressById", query="SELECT a FROM Address a WHERE a.id = :id"),
-	@NamedQuery(name="findAddressesByUserId", query="SELECT a FROM Address a WHERE a.userId = :id"),
+	//@NamedQuery(name="findAddressesByUserId", query="SELECT a FROM Address a WHERE a.userId = :id"),
 })
 
 public class Address implements Serializable, IAddress {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
 	private String city;
@@ -37,11 +39,12 @@ public class Address implements Serializable, IAddress {
 	@Column(name="street_address")
 	private String streetAddress;
 
-	@Column(name="user_id")
-	private int userId;
-
 	@Column(name="zip_code")
 	private String zipCode;
+
+	//bi-directional many-to-one association to User
+	@ManyToOne
+	private User user;
 
 	public Address() {
 	}
@@ -94,14 +97,6 @@ public class Address implements Serializable, IAddress {
 		this.streetAddress = streetAddress;
 	}
 
-	public int getUserId() {
-		return this.userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
 	public String getZipCode() {
 		return this.zipCode;
 	}
@@ -110,4 +105,11 @@ public class Address implements Serializable, IAddress {
 		this.zipCode = zipCode;
 	}
 
+	public User getUser() {
+		return this.user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
 import javax.persistence.Persistence;
 
@@ -43,30 +44,29 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public void saveUser(IUser user) {
+	public int saveUser(IUser user) {
 		EntityTransaction tx = em.getTransaction();
 
         tx.begin();
         IUser userToUpdate;
-        if ((user.getID() != null) && (user.getID() > 0)) {
-            userToUpdate = em.find(User.class, user.getID());
+        if ((user.getId() > 0)) {
+            userToUpdate = (IUser) em.find(User.class, user.getId());
             userToUpdate.setFirstName(user.getFirstName());
             userToUpdate.setLastName(user.getLastName());
             userToUpdate.setEmail(user.getEmail());
             userToUpdate.setPasswordHash(user.getPasswordHash());
-            userToUpdate.setDateTime(user.getDateTime());
-            userToUpdate.setGroupID(user.getGroupID());
+            userToUpdate.setCreateDate(user.getCreateDate());
+            userToUpdate.setUserGroup(user.getUserGroup());
         } else {
             userToUpdate = user;
         }
-
         em.persist(userToUpdate);
         tx.commit();
-
+        return userToUpdate.getId();
 	}
 
 	@Override
-	public IUser getUserById(Long id) {
+	public IUser getUserById(int id) {
 		@SuppressWarnings("unchecked")
 		List<IUser> userByIdList = em.createQuery("Select a From User a Where a.id=:userid").setParameter("userid", id).getResultList();
         if (userByIdList.isEmpty()) return null;
@@ -81,6 +81,17 @@ public class UserService implements IUserService {
 		return userEmailList;
 	}
 
+	
+	@Override
+	public IUser getUserByEmail(String Email) {
+		try {
+		IUser user = em.createQuery("Select a From User a Where a.email=:email", IUser.class).setParameter("email", Email).getSingleResult();
+		return user;
+		} catch (NoResultException e){
+			return null;
+		}
+	}
+	
 
 	@Override
 	public List<IUser> getUsersByPassword(String Password) {
@@ -88,4 +99,9 @@ public class UserService implements IUserService {
 		return userPasswordList;
 	}
 
+	@Override
+	public UserGroup getUserGroupById(int id){
+		UserGroup userGroup = em.createQuery("Select a From UserGroup a Where a.id=:id", UserGroup.class).setParameter("id", id).getSingleResult();
+		return userGroup;
+	}
 }

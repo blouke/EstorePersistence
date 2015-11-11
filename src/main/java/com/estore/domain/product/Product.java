@@ -87,5 +87,10 @@ public class Product implements Serializable, IProduct{
 	public void setImage(String image) {
 		this.image = image;
 	}
+
+	public void setId(long id) {
+		this.id = id;
+		
+	}
 }
 

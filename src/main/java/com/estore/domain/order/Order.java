@@ -40,7 +40,7 @@ public class Order implements Serializable, IOrder {
 	private String status;
 
 	//bi-directional many-to-one association to OrderDetail
-	@OneToMany(mappedBy="order")
+	@OneToMany(mappedBy="order", cascade=CascadeType.PERSIST)
 	private List<OrderDetail> orderDetails;
 
 	public Order() {

@@ -20,24 +20,27 @@ public class OrderService implements IOrderService {
 	}
 	
 	@Override
-	public void saveOrder(IOrder order) {
+	public int saveOrder(IOrder order) {
 		EntityTransaction tx = em.getTransaction();
 		
 		tx.begin();
-		IOrder orderToUpdate;
-		if (order.getId()>0){
-			orderToUpdate = em.find(Order.class, order.getId());
-			orderToUpdate.setAmount(order.getAmount());
-			orderToUpdate.setCustomerId(order.getCustomerId());
-			orderToUpdate.setOrderDate(order.getOrderDate());
-			orderToUpdate.setPaymentId(order.getPaymentId());
-			orderToUpdate.setStatus(order.getStatus());
-			orderToUpdate.setOrderDetails(order.getOrderDetails());
-		} else {
-			orderToUpdate = order;
-		}
-		em.persist(orderToUpdate);
+//		IOrder orderToUpdate;
+//		if (order.getId()>0){
+//			orderToUpdate = em.find(Order.class, order.getId());
+//			orderToUpdate.setAmount(order.getAmount());
+//			orderToUpdate.setCustomerId(order.getCustomerId());
+//			orderToUpdate.setOrderDate(order.getOrderDate());
+//			orderToUpdate.setPaymentId(order.getPaymentId());
+//			orderToUpdate.setStatus(order.getStatus());
+//			orderToUpdate.setOrderDetails(order.getOrderDetails());
+//		} else {
+//			orderToUpdate = order;
+//		}
+//		em.persist(orderToUpdate);
+		
+		em.persist(order);
 		tx.commit();
+		return order.getId();
 	}
 
 	@Override

@@ -1,135 +1,130 @@
 package com.estore.domain.user;
 
 import java.io.Serializable;
-import java.sql.Date;
+import javax.persistence.*;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
+import com.estore.domain.payment.Address;
 
+import java.util.Date;
+import java.util.List;
+
+
+/**
+ * The persistent class for the USER database table.
+ * 
+ */
 @Entity
+@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
 public class User implements Serializable, IUser {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	//@Basic(optional = false)
-	@GeneratedValue(strategy= GenerationType.AUTO)
-	@Column(name = "ID")
-	private Long id;
-	
-	@NotNull
-	private String first_name;
-	
-	@NotNull
-	private String last_name;
-	
-	@NotNull
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="create_date")
+	private Date createDate;
+
 	private String email;
-	
-	@NotNull
-	private String password_hash;
-	
-	@NotNull
-	private Date create_date;
-	
-	@NotNull
-	@Column(name="GROUP_ID")
-	private Long groupID;
-	
-	/*@JoinColumn(name = "ID", referencedColumnName = "GROUP_ID")
-	@ManyToOne(optional = false)
-	private UserGroup group;
-		
-	public UserGroup getGroup() {
-		return group;
+
+	@Column(name="first_name")
+	private String firstName;
+
+	@Column(name="last_name")
+	private String lastName;
+
+	@Column(name="password_hash")
+	private String passwordHash;
+
+	//bi-directional many-to-one association to Address
+	@OneToMany(mappedBy="user")
+	private List<Address> addresses;
+
+	//bi-directional many-to-one association to UserGroup
+	@ManyToOne
+	@JoinColumn(name="group_id")
+	private UserGroup userGroup;
+
+	public User() {
 	}
 
-	public void setGroup(UserGroup group) {
-		this.group = group;
-	}*/
-
-	@Override
-	public Long getID() {
-		return id;
+	public int getId() {
+		return this.id;
 	}
 
-	@Override
-	public String getFirstName() {
-		return first_name;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	@Override
-	public String getLastName() {
-		return last_name;
+	public Date getCreateDate() {
+		return this.createDate;
 	}
 
-	@Override
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
-	@Override
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getFirstName() {
+		return this.firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return this.lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
 	public String getPasswordHash() {
-		return password_hash;
+		return this.passwordHash;
 	}
 
-	@Override
-	public Date getDateTime() {
-		return create_date;
+	public void setPasswordHash(String passwordHash) {
+		this.passwordHash = passwordHash;
 	}
 
-	@Override
-	public Long getGroupID() {
-		return groupID;
+	public List<Address> getAddresses() {
+		return this.addresses;
 	}
 
-	@Override
-	public void setFirstName(String FirstName) {
-		this.first_name = FirstName;
-
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 
-	@Override
-	public void setLastName(String LastName) {
-		this.last_name = LastName;
+	public Address addAddress(Address address) {
+		getAddresses().add(address);
+		address.setUser(this);
 
+		return address;
 	}
 
-	@Override
-	public void setEmail(String Email) {
-		this.email = Email;
+	public Address removeAddress(Address address) {
+		getAddresses().remove(address);
+		address.setUser(null);
 
+		return address;
 	}
 
-	@Override
-	public void setPasswordHash(String PasswordHash) {
-		this.password_hash = PasswordHash;
-
+	public UserGroup getUserGroup() {
+		return this.userGroup;
 	}
 
-	@Override
-	public void setDateTime(Date Datetime) {
-		this.create_date = Datetime;
-
-	}
-
-	@Override
-	public void setGroupID(Long GroupID) {
-		this.groupID = GroupID;
-
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", first_name=" + first_name + ", last_name="
-				+ last_name + ", email=" + email + ", create_date=" + create_date
-				+ ", group_id=" + groupID + "]";
+	public void setUserGroup(UserGroup userGroup) {
+		this.userGroup = userGroup;
 	}
 
 }
