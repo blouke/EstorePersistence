@@ -1,26 +1,36 @@
+USE `estore`;
+
 -- SAMPLE DATA
 
 
 -- TABLE CATEGORY
-INSERT INTO `CATEGORY` (`id`,`name`,`tags`) VALUES (1,'Misc','Bottle, Mug, Ice Tray');
-INSERT INTO `CATEGORY` (`id`,`name`,`tags`) VALUES (2,'Coffee','Medium roast, Dark roast, Light roast');
-INSERT INTO `CATEGORY` (`id`,`name`,`tags`) VALUES (3,'Bags','Purse, Backpack, Tote');
-INSERT INTO `CATEGORY` (`id`,`name`,`tags`) VALUES (4,'Books','Science Fiction');
+INSERT INTO `CATEGORY` (`id`,`name`,`tags`) VALUES (1,'12" - 14" Pizza Delivery Bags (Holds upto Three)','Small Bag');
+INSERT INTO `CATEGORY` (`id`,`name`,`tags`) VALUES (2,'16" - 18" Pizza Delivery Bags (Holds upto Two)','Medium Bag');
+INSERT INTO `CATEGORY` (`id`,`name`,`tags`) VALUES (3,'16" - 18" Pizza Delivery Bags (Holds upto Five)','Large Bag');
+INSERT INTO `CATEGORY` (`id`,`name`,`tags`) VALUES (4,'16" - 18" Jumbo Delivery Bags (Holds upto Eight)','Jumbo Bag');
+INSERT INTO `CATEGORY` (`id`,`name`,`tags`) VALUES (4,'Pasta/Sandwiches & Drink Carrier Bags','Catering Bag');
+
+
 
 -- TABLE PRODUCT
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (1,'Dune',20.00,'\"Set on the desert planet Arakis, Dune is the story of the boy Paul Atreides, who would become the m',4,'dune.jpg');
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (2,'Hydrogen Sonata',25.00,'The Scavenger species are circling. It is, truly, the End Days for the Gzilt civilization.\n\nAn ancie',4,'hydrogen-sonata-book.jpg');
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (3,'Hyperion',15.00,'On the world called Hyperion, beyond the law of the Hegemony of Man, there waits the creature called',4,'hyperion-book.jpg');
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (4,'Rebel Dawn (Star Wars: The Han Solo Trilogy #3)',18.00,'Here is the explosive conclusion of the blockbuster trilogy that chronicles the never-before-told st',4,'rebel-dawn-book.jpg');
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (5,'Peet\'s Coffee & Tea Major Dickason\'s Blend',9.00,'Our most famous blend. Combines the best coffees from the world\'s premier coffee-growing regions. Ve',2,'dark-coffee.jpg');
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (6,'Starbucks Veranda Blen Whole Bean Coffee',8.00,'Forty years of coffee-roasting expertise inspired us to perfect Starbucks® Blonde Roast - a lighter,',2,'light-coffee.jpg');
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (7,'Caribou Coffee Blend Whole Bean',7.00,'Caribou coffee\'s signature blend meets that challenge, balancing a big bodied, syrupy taste with a c',2,'medium-coffee.jpg');
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (8,'R2-D2 Dome Purse',50.00,'When you\'re carrying something super-important, say, your car keys or your eReader or the plans to t',3,'r2d2bag.jpg');
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (9,'Star Trek Messenger Bag',45.00,'Space: the final frontier. With this messenger bag at your side, you can explore strange new worlds,',3,'star-trek-bag.jpg');
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (10,'Doctor Who Purse',60.00,'Dimensions - 375w x 275h x 135d mm. The coolest bag in time and space. Unfortunately not like the re',3,'tardis-bag.jpg');
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (11,'Star Wars Han Solo in Carbonite Ice Cube Tray',20.00,'That doesn\'t really have the same sort of dramatic impact, does it? Still, that\'s basically what Dar',1,'han-solo-ice-tray.jpg');
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (12,'Green Arrow Coffee Mug',11.00,'Don\'t fail the morning by using a boring coffee mug.',1,'green-arrow-mug.jpg');
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (13,'Red Dwarf Coffee Mug',14.00,'I am Holly, the ship\'s computer, with an IQ of 6000; the same IQ as 6000 PE teachers.',1,'red-dwarf-mug.jpg');
+INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (1,'12" - 14" Pizza Delivery Bag (Red)',12.00,'\"The details goes here',1,'red-pizza-bag.jpg');
+INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (2,'12" - 14" Pizza Delivery Bag (Blue)',12.00,'\"The details goes here',1,'blue-pizza-bag.jpg');
+INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (3,'12" - 14" Pizza Delivery Bag (Black)',12.00,'\"The details goes here',1,'black-pizza-bag.jpg');
+
+INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (4,'16" - 18" Pizza Delivery Bag (Red)',15.00,'\"The details goes here',1,'red-pizza-bag.jpg');
+INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (5,'16" - 18" Pizza Delivery Bag (Blue)',15.00,'\"The details goes here',1,'blue-pizza-bag.jpg');
+INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (6,'16" - 18" Pizza Delivery Bag (Black)',15.00,'\"The details goes here',1,'black-pizza-bag.jpg');
+
+INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (7,'16" - 18" Pizza Delivery Bag (Red)',18.00,'\"The details goes here',1,'red-pizza-bag.jpg');
+INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (8,'16" - 18" Pizza Delivery Bag (Blue)',18.00,'\"The details goes here',1,'blue-pizza-bag.jpg');
+INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (9,'16" - 18" Pizza Delivery Bag (Black)',18.00,'\"The details goes here',1,'black-pizza-bag.jpg');
+
+INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (10,'16" - 18" Jumbo Delivery Bags (Holds upto Eight)',25.00,'\"The details goes here',1,'blue-jumbo-bag.jpg');
+INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (11,'Pasta/Sandwiches & Drink Carrier Bags',25.00,'\"The details goes here',1,'blue-pasta-bag.jpg');
+
+
+
+
 
 -- TABLE USER_GROUPS
 INSERT INTO USER_GROUPS (NAME,DESCRIPTION) VALUES 
