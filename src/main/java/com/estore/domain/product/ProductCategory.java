@@ -22,7 +22,7 @@ public class ProductCategory implements Serializable, IProductCategory {
 	private String name;
 	
 	@NotNull
-	private String tags;
+	private String description;
 	
 	@Override
 	public Long getId() {
@@ -35,8 +35,8 @@ public class ProductCategory implements Serializable, IProductCategory {
 	}
 
 	@Override
-	public String getTags() {
-		return tags;
+	public String getDescription() {
+		return description;
 	}
 
 	@Override
@@ -45,13 +45,13 @@ public class ProductCategory implements Serializable, IProductCategory {
 	}
 
 	@Override
-	public void setTags(String tags) {
-		this.tags = tags;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	@Override
     public String toString() {
-        return "Category{" + "id=" + id + ", name=" + name + ", tags=" + tags + '}';
+        return "Category{" + "id=" + id + ", name=" + name + ", tags=" + description + '}';
     }
 
 }

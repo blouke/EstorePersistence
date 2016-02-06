@@ -39,7 +39,7 @@ public class ProductCategoryService implements IProductCategoryService {
         if ((category.getId() != null) && (category.getId() > 0)) {
         	categoryToUpdate = em.find(ProductCategory.class, category.getId());
         	categoryToUpdate.setName(category.getName());
-            categoryToUpdate.setTags(category.getTags());
+            categoryToUpdate.setDescription(category.getDescription());
         } else {
             categoryToUpdate = category;
         }

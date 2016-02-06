@@ -4,11 +4,9 @@ USE `estore`;
 
 
 -- TABLE CATEGORY
-INSERT INTO `CATEGORY` (`id`,`name`,`tags`) VALUES (1,'12" - 14" Pizza Delivery Bags (Holds upto Three)','Small Bag');
-INSERT INTO `CATEGORY` (`id`,`name`,`tags`) VALUES (2,'16" - 18" Pizza Delivery Bags (Holds upto Two)','Medium Bag');
-INSERT INTO `CATEGORY` (`id`,`name`,`tags`) VALUES (3,'16" - 18" Pizza Delivery Bags (Holds upto Five)','Large Bag');
-INSERT INTO `CATEGORY` (`id`,`name`,`tags`) VALUES (4,'16" - 18" Jumbo Delivery Bags (Holds upto Eight)','Jumbo Bag');
-INSERT INTO `CATEGORY` (`id`,`name`,`tags`) VALUES (4,'Pasta/Sandwiches & Drink Carrier Bags','Catering Bag');
+INSERT INTO `CATEGORY` (`id`,`name`,`description`) VALUES (1,'Pizza Delivery Bags','Multiple Colors with multiple sizes available.');
+INSERT INTO `CATEGORY` (`id`,`name`,`description`) VALUES (2,'Jumbo Delivery Bags','Holds multiple items.');
+INSERT INTO `CATEGORY` (`id`,`name`,`description`) VALUES (3,'Catering Bags','Pasta/Sandwiches & Drink Carrier Bags.');
 
 
 
@@ -25,8 +23,8 @@ INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) 
 INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (8,'16" - 18" Pizza Delivery Bag (Blue)',18.00,'\"The details goes here',1,'blue-pizza-bag.jpg');
 INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (9,'16" - 18" Pizza Delivery Bag (Black)',18.00,'\"The details goes here',1,'black-pizza-bag.jpg');
 
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (10,'16" - 18" Jumbo Delivery Bags (Holds upto Eight)',25.00,'\"The details goes here',1,'blue-jumbo-bag.jpg');
-INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (11,'Pasta/Sandwiches & Drink Carrier Bags',25.00,'\"The details goes here',1,'blue-pasta-bag.jpg');
+INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (10,'16" - 18" Jumbo Delivery Bags (Holds upto Eight)',25.00,'\"The details goes here',2,'blue-jumbo-bag.jpg');
+INSERT INTO `PRODUCT` (`id`,`name`,`price`,`description`,`category_id`,`image`) VALUES (11,'Pasta/Sandwiches & Drink Carrier Bags',25.00,'\"The details goes here',3,'blue-pasta-bag.jpg');
 
 
 

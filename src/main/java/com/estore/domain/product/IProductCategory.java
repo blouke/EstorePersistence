@@ -5,11 +5,11 @@ public interface IProductCategory {
 	
 	String getName();
 	
-	String getTags();
+	String getDescription();
 	
 	void setName(String name);
 	
-	void setTags(String tags);
+	void setDescription(String description);
 	
 	String toString();
 	
